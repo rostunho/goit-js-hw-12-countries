@@ -7,12 +7,17 @@ const refs = {
   searchForm: document.querySelector('.country-search'),
 };
 
-fetchCountries('canada')
-  .then(renderCountryCard)
-  .catch(error => console.log(eroror));
+refs.searchForm.addEventListener('input', onSearch);
+
+function onSearch(event) {
+  event.preventDefault();
+  const searchQuery = event.currentTarget.value;
+  fetchCountries(searchQuery).then(renderCountryCard).catch(onFetchError);
+}
 
 function fetchCountries(searchQuery) {
-  return fetch(`https://restcountries.com/v2/name/${searchQuery}`).then(response => {
+  const url = `https://restcountries.com/v2/name/${searchQuery}`;
+  return fetch(url).then(response => {
     return response.json();
   });
 }
@@ -20,4 +25,8 @@ function fetchCountries(searchQuery) {
 function renderCountryCard(country) {
   const markup = coutryCardTmp(country);
   refs.cardContainer.innerHTML = markup;
+}
+
+function onFetchError(error) {
+  alert(Error);
 }
