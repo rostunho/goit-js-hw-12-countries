@@ -4,18 +4,20 @@ import coutryCardTmp from './templates/couuntry-card.hbs';
 
 const refs = {
   cardContainer: document.querySelector('.card-container'),
+  searchForm: document.querySelector('.country-search'),
 };
 
-fetch('https://restcountries.com/v2/name/belgium')
-  .then(response => {
+fetchCountries('canada')
+  .then(renderCountryCard)
+  .catch(error => console.log(eroror));
+
+function fetchCountries(searchQuery) {
+  return fetch(`https://restcountries.com/v2/name/${searchQuery}`).then(response => {
     return response.json();
-  })
-  .then(countries => {
-    console.log(countries);
-    const markup = coutryCardTmp(countries);
-    console.log(markup);
-    refs.cardContainer.innerHTML = markup;
-  })
-  .catch(error => {
-    console.log(error);
   });
+}
+
+function renderCountryCard(country) {
+  const markup = coutryCardTmp(country);
+  refs.cardContainer.innerHTML = markup;
+}
