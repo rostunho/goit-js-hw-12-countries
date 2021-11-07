@@ -13,10 +13,12 @@ function renderCountryCard(countries) {
     refs.cardContainer.innerHTML = '';
     const markup = coutryCardTmp(countries);
     refs.cardContainer.innerHTML = markup;
+    return;
   } else if (countries.length > 1 && countries.length < 10) {
     refs.cardContainer.innerHTML = '';
     const markup = countriesListTmp(countries);
     refs.cardContainer.innerHTML = markup;
+    return;
   } else {
     noticePopup();
   }
