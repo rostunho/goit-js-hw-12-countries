@@ -1,5 +1,6 @@
 import coutryCardTmp from '../templates/couuntry-card.hbs';
 import countriesListTmp from '../templates/countries-list.hbs';
+import noticePopup from './notice';
 import refs from './refs';
 
 // function renderCountryCard(country) {
@@ -17,7 +18,7 @@ function renderCountryCard(countries) {
     const markup = countriesListTmp(countries);
     refs.cardContainer.innerHTML = markup;
   } else {
-    console.log('!! Achtung !!');
+    noticePopup();
   }
 }
 
