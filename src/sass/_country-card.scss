@@ -1,0 +1,32 @@
+.country-name {
+  font-size: 50px;
+}
+
+.description {
+  width: 500px;
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.capital,
+.population,
+.languages {
+  font-size: 20px;
+  color: rgb(78, 78, 78);
+}
+
+.languages {
+  padding-left: 0;
+}
+
+.flag {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
